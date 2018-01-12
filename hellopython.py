@@ -65,9 +65,9 @@ del l_conve['Onion']
 print(l_conve)
 print(l_conve.keys())
 print(l_conve.values())
-'''
-a = 9
-b = 6
+
+a = 99
+b = 8
 if a > b :
     print('a is bada')
 elif a == b:
@@ -75,3 +75,16 @@ elif a == b:
 else:
     print('b is bada')
 
+c = a / b
+print(c)
+
+if ((a>5)and(b<7)):
+    print('case I')
+elif (c<2):
+    print('case II')
+elif not(a<b):
+    print('case III')
+else:
+    print('case IV')
+
+'''
