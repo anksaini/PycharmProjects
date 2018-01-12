@@ -14,10 +14,10 @@ print("%s %s %s" % ('My name is',name, lname))
 
 print("I don't like", end=" ")
 print("newlines")
-
+'''
 day = ['sun', 'mon', 'tue', 'wed']
 month = ['jan', 'feb', 'mar', 'apr']
-
+'''
 print(day[1:4])
 day_month = [day, month]
 
@@ -87,4 +87,26 @@ elif not(a<b):
 else:
     print('case IV')
 
+
+for x in range(0,3):
+    print(x)
+for y in month:
+    print(y,end=' ')
+
+numlist = [[1,2,3],[10,20,30],[100,200,300]]
+
+print(numlist)
+
+for x in range(0,3):
+    for y in range(0,3):
+        print(numlist[x][y], end=" ")
+
+print('\n',numlist[2][2])
+
 '''
+randomnm = random.randrange(0,100)
+
+while (randomnm != 9):
+    print(randomnm, end=' ')
+    randomnm = random.randrange(0, 10)
+
