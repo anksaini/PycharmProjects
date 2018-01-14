@@ -103,10 +103,54 @@ for x in range(0,3):
 
 print('\n',numlist[2][2])
 
-'''
+
 randomnm = random.randrange(0,100)
 
 while (randomnm != 9):
     print(randomnm, end=' ')
     randomnm = random.randrange(0, 10)
 
+i = 0
+
+while (i <= 30):
+    if (i%3 == 0):
+        print(i,end=' ')
+    elif (i==26):
+        break
+    else:
+        i += 1
+        continue
+    i += 1
+
+    # Understanding break
+number = 0
+
+for number in range(10):
+    number = number + 1
+    if number == 5:
+        break  # break here
+    print('Number is ' + str(number))
+
+print('Out of loop')
+
+# Understanding continue
+number = 0
+
+for number in range(10):
+    number = number + 1
+    if number == 5:
+        continue
+    print('Number is ' + str(number))
+
+print('Out of loop')
+'''
+# Understanding pass
+number = 0
+
+for number in range(10):
+    number = number + 1
+    if number == 5:
+        pass
+    print('Number is ' + str(number))
+
+print('Out of loop')
