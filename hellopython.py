@@ -143,7 +143,7 @@ for number in range(10):
     print('Number is ' + str(number))
 
 print('Out of loop')
-'''
+
 # Understanding pass
 number = 0
 
@@ -154,3 +154,252 @@ for number in range(10):
     print('Number is ' + str(number))
 
 print('Out of loop')
+
+# An iterator for a while loop is defined before the loop
+i = 0;
+while (i <= 20):
+    if (i % 2 == 0):
+        print(i)
+    elif (i == 9):
+        # Forces the loop to end all together
+        break
+    else:
+        # Shorthand for i = i + 1
+        i += 1
+        # Skips to the next iteration of the loop
+        continue
+
+    i += 1
+
+
+# FUNCTIONS -------------
+# Functions allow you to reuse and write readable code
+# Type def (define), function name and parameters it receives
+# return is used to return something to the caller of the function
+def addNumbers(fNum, sNum):
+    sumNum = fNum + sNum
+    return sumNum
+
+
+print(addNumbers(1, 4))
+
+# Can't get the value of rNum because it was created in a function
+# It is said to be out of scope
+# print(sumNum)
+
+# If you define a variable outside of the function it works every place
+newNum = 0;
+
+
+def subNumbers(fNum, sNum):
+    newNum = fNum - sNum
+    return newNum
+
+
+print(subNumbers(1, 4))
+
+# USER INPUT -------------
+print('What is your name?')
+
+# Stores everything typed up until ENTER
+name = sys.stdin.readline()
+
+print('Hello', name)
+'''
+# STRINGS -------------
+# A string is a series of characters surrounded by ' or "
+long_string = "i ain't a tweener"
+
+# Retrieve the first 5 characters
+print(long_string[0:5])
+
+# Get the last 5 characters
+print(long_string[-5:])
+
+# Everything up to the last 5 characters
+print(long_string[:-5])
+
+# Everything after the last 5 characters
+print(long_string[-5:])
+
+# Concatenate part of a string to another
+print(long_string[:4] + "bcde")
+
+# String formatting
+print("%c sky full of %s with count %d precisely %.3f" % ('A', 'stars', 100, 100.99))
+
+# Capitalizes the first letter
+print(long_string.capitalize())
+
+# Returns the index of the start of the string
+# case sensitive
+print(long_string.find("ain"))
+
+# Returns true if all characters are letters ' isn't a letter
+print(long_string.isalpha())
+
+# Returns true if all characters are alphanumeric
+print(long_string.isalnum())
+
+# Returns the string length
+print(len(long_string))
+
+# Replace the first word with the second (Add a number to replace more)
+print(long_string.replace("Floor", "Ground"))
+
+# Remove white space from front and end
+print(long_string.strip())
+
+# Split a string into a list based on the delimiter you provide
+quote_list = long_string.split(" ")
+print(quote_list)
+'''
+# FILE I/O -------------
+
+# Overwrite or create a file for writing
+test_file = open("test.txt", "wb")
+
+# Get the file mode used
+print(test_file.mode)
+
+# Get the files name
+print(test_file.name)
+
+# Write text to a file with a newline
+test_file.write(bytes("Write me to the file\n", 'UTF-8'))
+
+# Close the file
+test_file.close()
+
+# Opens a file for reading and writing
+test_file = open("test.txt", "r+")
+
+# Read text from the file
+text_in_file = test_file.read()
+
+print(text_in_file)
+
+# Delete the file
+os.remove("test.txt")
+
+
+# CLASSES AND OBJECTS -------------
+# The concept of OOP allows us to model real world things using code
+# Every object has attributes (color, height, weight) which are object variables
+# Every object has abilities (walk, talk, eat) which are object functions
+
+class Animal:
+    # None signifies the lack of a value
+    # You can make a variable private by starting it with __
+    __name = None
+    __height = None
+    __weight = None
+    __sound = None
+
+    # The constructor is called to set up or initialize an object
+    # self allows an object to refer to itself inside of the class
+    def __init__(self, name, height, weight, sound):
+        self.__name = name
+        self.__height = height
+        self.__weight = weight
+        self.__sound = sound
+
+    def set_name(self, name):
+        self.__name = name
+
+    def set_height(self, height):
+        self.__height = height
+
+    def set_weight(self, height):
+        self.__height = height
+
+    def set_sound(self, sound):
+        self.__sound = sound
+
+    def get_name(self):
+        return self.__name
+
+    def get_height(self):
+        return str(self.__height)
+
+    def get_weight(self):
+        return str(self.__weight)
+
+    def get_sound(self):
+        return self.__sound
+
+    def get_type(self):
+        print("Animal")
+
+    def toString(self):
+        return "{} is {} cm tall and {} kilograms and says {}".format(self.__name, self.__height, self.__weight,
+                                                                      self.__sound)
+
+
+# How to create a Animal object
+cat = Animal('Whiskers', 33, 10, 'Meow')
+
+print(cat.toString())
+
+
+# You can't access this value directly because it is private
+# print(cat.__name)
+
+# INHERITANCE -------------
+# You can inherit all of the variables and methods from another class
+
+class Dog(Animal):
+    __owner = None
+
+    def __init__(self, name, height, weight, sound, owner):
+        self.__owner = owner
+        self.__animal_type = None
+
+        # How to call the super class constructor
+        super(Dog, self).__init__(name, height, weight, sound)
+
+    def set_owner(self, owner):
+        self.__owner = owner
+
+    def get_owner(self):
+        return self.__owner
+
+    def get_type(self):
+        print("Dog")
+
+    # We can overwrite functions in the super class
+    def toString(self):
+        return "{} is {} cm tall and {} kilograms and says {}. His owner is {}".format(self.get_name(),
+                                                                                       self.get_height(),
+                                                                                       self.get_weight(),
+                                                                                       self.get_sound(), self.__owner)
+
+    # You don't have to require attributes to be sent
+    # This allows for method overloading
+    def multiple_sounds(self, how_many=None):
+        if how_many is None:
+            print(self.get_sound)
+        else:
+            print(self.get_sound() * how_many)
+
+
+spot = Dog("Spot", 53, 27, "Ruff", "Derek")
+
+print(spot.toString())
+
+
+# Polymorphism allows use to refer to objects as their super class
+# and the correct functions are called automatically
+
+class AnimalTesting:
+    def get_type(self, animal):
+        animal.get_type()
+
+
+test_animals = AnimalTesting()
+
+test_animals.get_type(cat)
+test_animals.get_type(spot)
+
+spot.multiple_sounds(4)
+'''
