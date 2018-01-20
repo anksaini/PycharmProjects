@@ -205,7 +205,7 @@ print('What is your name?')
 name = sys.stdin.readline()
 
 print('Hello', name)
-'''
+
 # STRINGS -------------
 # A string is a series of characters surrounded by ' or "
 long_string = "i ain't a tweener"
@@ -245,19 +245,19 @@ print(long_string.isalnum())
 print(len(long_string))
 
 # Replace the first word with the second (Add a number to replace more)
-print(long_string.replace("Floor", "Ground"))
+print(long_string.replace('tweener', 'nigger'))
 
 # Remove white space from front and end
 print(long_string.strip())
 
 # Split a string into a list based on the delimiter you provide
-quote_list = long_string.split(" ")
+quote_list = long_string.split(' ')
 print(quote_list)
 '''
 # FILE I/O -------------
 
 # Overwrite or create a file for writing
-test_file = open("test.txt", "wb")
+test_file = open("test.txt", 'wb+')
 
 # Get the file mode used
 print(test_file.mode)
@@ -266,22 +266,20 @@ print(test_file.mode)
 print(test_file.name)
 
 # Write text to a file with a newline
-test_file.write(bytes("Write me to the file\n", 'UTF-8'))
-
-# Close the file
-test_file.close()
+test_file.write(bytes("Tweener is back\n", 'UTF-8'))
 
 # Opens a file for reading and writing
 test_file = open("test.txt", "r+")
 
 # Read text from the file
-text_in_file = test_file.read()
+print(test_file.read())
 
-print(text_in_file)
+# Close the file
+test_file.close()
 
 # Delete the file
 os.remove("test.txt")
-
+'''
 
 # CLASSES AND OBJECTS -------------
 # The concept of OOP allows us to model real world things using code
