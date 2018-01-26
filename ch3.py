@@ -50,17 +50,24 @@ print(count)
 
 
 randnum = random.randint(1,100)
-picknum = int(input("Pick a number between 1 to 100\n"))
+t = 3
+print("You have ",t+1," tries")
+picknum = int(input("Guess the number between 1 to 100\n"))
 i = 0
-
-while randnum != picknum:
+while randnum != picknum and t !=0 :
     if picknum > randnum:
+        t -= 1
+        print(t+1," tries left",end=".")
         picknum = int(input("Smaller!\n"))
     else:
+        t -= 1
+        print(t+1, " tries left",end=".")
         picknum = int(input("Larger!\n"))
     i += 1
-
-print("Correct! You guessed it in ",i," tries")
+if picknum == randnum:
+    print("Correct! You guessed it in ",i," tries")
+else:
+    print("Number was ",randnum,".You outta tries, Nigga")
 
 # p85/1
 
@@ -76,5 +83,37 @@ elif randnum == 4:
     print("Peace")
 else:
     print("Gold")
-'''
+
 # p85/2
+head = 0
+tail = 0
+
+flip = random.randint(1,2)
+i=0
+
+while i !=100:
+    if flip == 1:
+        head += 1
+    else:
+        tail += 1
+    flip = random.randint(1, 2)
+    i += 1
+
+print("Number of Heads : ",head)
+print("Number of Tails: ",tail)
+'''
+# p85/4
+
+picknum = int(input("Pick up a random number between 1 & 100\n"))
+randnum = random.randint(1,100)
+i=0
+
+while picknum != randnum:
+    print(randnum, end=" ")
+    if picknum == randnum:
+        break
+    else:
+        randnum = random.randint(1, 100)
+    i += 1
+print("\nComputer guessed it in",i,"tries")
+
