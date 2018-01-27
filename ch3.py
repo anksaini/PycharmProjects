@@ -67,7 +67,7 @@ while randnum != picknum and t !=0 :
 if picknum == randnum:
     print("Correct! You guessed it in ",i," tries")
 else:
-    print("Number was ",randnum,".You outta tries, Nigga")
+    print("Number was ",randnum,".You outta tries, Man!")
 
 # p85/1
 
