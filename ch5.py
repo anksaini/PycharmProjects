@@ -57,3 +57,43 @@ input("\nPress the enter key to continue.")
 del grocery[0:2]
 print(grocery)
 input("\n\nPress the enter key to exit.")
+
+# p129
+# High Scores
+# Demonstrates list methods
+scores = []
+choice = None
+print('''
+0 - Exit
+1 - Show
+2 - Add
+3 - Remove
+4 - Sort
+''')
+while choice != "0":
+    choice = input("Enter a choice: ")
+    if choice == "0":
+        continue
+    elif choice == "1":
+        for i in scores:
+            print(i)
+    elif choice == "2":
+        score = int(input("Enter the score: "))
+        scores.append(score)
+        print(scores)
+    elif choice == "3":
+        score = int(input("Enter the score: "))
+        if score in scores:
+            scores.remove(score)
+        else:
+            print("Score ain't there")
+            continue
+        print(scores)
+    elif choice == "4":
+        scores.sort(reverse=True)
+        print(scores)
+    else:
+        print("You ain't entering valid choices")
+
+print("Go-fuck-yourself")
+
